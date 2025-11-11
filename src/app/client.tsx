@@ -1,10 +1,9 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
 import { useTRPC } from "@/trpc/client";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
-export const client = () => {
+export const Client = () => {
   const trpc = useTRPC();
 
   const { data: users } = useSuspenseQuery(

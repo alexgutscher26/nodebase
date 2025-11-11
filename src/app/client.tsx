@@ -3,6 +3,9 @@
 import { useTRPC } from "@/trpc/client";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
+/**
+ * Renders the Client component displaying user data.
+ */
 export const Client = () => {
   const trpc = useTRPC();
 

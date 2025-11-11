@@ -1,7 +1,7 @@
 {
   "reviews": {
     "auto": true,
-    "exclude": [],
+    "exclude": [ "node_modules/**" ],
     "include": [],
     "autoApprove": false,
     "codeSuggestions": true,
@@ -14,5 +14,5 @@
     "auto": true,
     "level": "basic"
   },
-  "enableCIFixer": false
+  "enableCIFixer": true
 }

@@ -9,6 +9,9 @@ import { makeQueryClient } from './query-client';
 import type { AppRouter } from './routers/_app';
 export const { TRPCProvider, useTRPC } = createTRPCContext<AppRouter>();
 let browserQueryClient: QueryClient;
+/**
+ * Retrieves a query client, creating a new one if necessary based on the environment.
+ */
 function getQueryClient() {
   if (typeof window === 'undefined') {
     // Server: always make a new query client
@@ -21,6 +24,11 @@ function getQueryClient() {
   if (!browserQueryClient) browserQueryClient = makeQueryClient();
   return browserQueryClient;
 }
+/**
+ * Constructs the URL for the API endpoint.
+ *
+ * The function determines the base URL based on the environment. If the code is running in a browser, it returns an empty string. If the VERCEL_URL environment variable is set, it constructs the URL using that value. Otherwise, it defaults to 'http://localhost:3000'. Finally, it appends '/api/trpc' to the base URL to form the complete API endpoint.
+ */
 function getUrl() {
   const base = (() => {
     if (typeof window !== 'undefined') return '';
@@ -29,6 +37,9 @@ function getUrl() {
   })();
   return `${base}/api/trpc`;
 }
+/**
+ * Provides a TRPC context for React components.
+ */
 export function TRPCReactProvider(
   props: Readonly<{
     children: React.ReactNode;

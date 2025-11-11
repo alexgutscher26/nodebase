@@ -3,6 +3,9 @@ import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { Suspense } from "react";
 import { Client } from "./client";
 
+/**
+ * Renders a page with user data pre-fetched.
+ */
 const Page = async () => {
   const queryClient = getQueryClient();
 
